@@ -9,32 +9,41 @@ class Search extends Component {
 
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state.text);
-        this.props.searchUsers(this.state.text);
-        this.setState({ text: '' });
+        if (this.state.text === '') {
+            this.props.setAlert('Please enter something', 'light');
+        } else {
+            this.props.searchUsers(this.state.text);
+            this.setState({ text: '' });
+        }
     }
 
     static propTypes = {
-        searchUsers: PropTypes.func.isRequired
+        searchUsers: PropTypes.func.isRequired,
+        clearUsers: PropTypes.func.isRequired
     }
 
     changeHandler = (e) => this.setState({ [e.target.name]: e.target.value });
 
     render() {
+        const { showClear, clearUsers } = this.props;
+
         return (
             <div>
-               <form onSubmit={this.submitHandler} className="form" >
-                   <input
-                    type="text"
-                    name="text"
-                    placeholder="Search users.."
-                    value={this.state.text}
-                    onChange={this.changeHandler} />
-                   <input 
-                    type="submit" 
-                    className="btn btn-dark btn-block" 
-                    value="Search"/>
-               </form>
+                <form onSubmit={this.submitHandler} className="form" >
+                    <input
+                        type="text"
+                        name="text"
+                        placeholder="Search users.."
+                        value={this.state.text}
+                        onChange={this.changeHandler} />
+                    <input
+                        type="submit"
+                        className="btn btn-dark btn-block"
+                        value="Search" />
+                    {showClear && (<button className="btn btn-block"
+                        onClick={clearUsers}>Clear</button>)}
+
+                </form>
             </div>
         )
     }
