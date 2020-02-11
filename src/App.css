@@ -2,11 +2,12 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #dc3545;
+  --primary-color: #0079d3;
   --dark-color: #333333;
-  --light-color: #f4f4f4;
+  --light-color: #e6e5e5;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --navbar-color: #ff4500;
 }
 
 * {
@@ -196,6 +197,21 @@ img {
   grid-gap: 1rem;
 }
 
+/*flex*/
+.flex, .flexR1024, .flexR1080, .flexR991, .flexR840, .flexR768, .flexR680, .flexR660, .flexR576, .flexR520, .flexR480, .flexR420, .flexR360 { 
+  display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; 
+}
+.flex1 { flex: 1; }
+.flex2 { flex: 2; }
+.flex3 { flex: 3; }
+.flex4 { flex: 4; }
+.flex5 { flex: 5; }
+.flex6 { flex: 6; }
+.flex7 { flex: 7; }
+.flexAlignItemsCenter { -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+.flexJustifyBetween { -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; }
+.flexGap{ width: 1%;}
+
 .btn {
   display: inline-block;
   background: var(--light-color);
@@ -356,6 +372,8 @@ table th {
   width: 100%;
   opacity: 0.9;
   margin-bottom: 1rem;
+  background-color: var(--navbar-color);
+  color: #FFF;
 }
 
 .navbar ul {
@@ -369,7 +387,7 @@ table th {
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color: var(--navbar-color);
 }
 
 .navbar .welcome span {

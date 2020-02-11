@@ -1,15 +1,15 @@
 import React from 'react'
-import UserItem from './UserItem';
+import FeedItem from './FeedItem';
 import Spinner from '../layout/Spinner';
 
-const users = ({ users, loading }) => {
-    if(loading) {
+const Feeds = ({ feeds, loading }) => {
+    if (loading) {
         return <Spinner />
     } else {
         return (
-            <div style={ cardStyle }>
-                { users.map( user => {
-                    return <UserItem key={user.id} user={user} />
+            <div style={cardStyle}>
+                {feeds.map((feed, index) => {
+                    return <FeedItem key={index} feed={feed} />
                 })}
             </div>
         )
@@ -23,4 +23,4 @@ const cardStyle = {
     gridGap: '1rem'
 }
 
-export default users;
+export default Feeds;
